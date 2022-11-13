@@ -15,7 +15,7 @@
     </div>
 
     <table class="table table-bordered">
-        <!--        шапка таблицы-->
+        <!--шапка таблицы-->
         <thead class="table-dark">
         <tr>
 
@@ -26,7 +26,7 @@
         </tr>
         </thead>
         <tbody>
-        <!--      цикл  -->
+        <!--цикл-->
         <th:block th:each="student: ${studentsList}">
             <tr>
                 <td>[[${student.id}]]</td>
@@ -34,13 +34,13 @@
                 <td>[[${student.lastName}]]</td>
 
                 <td>
-<!--                                    кнопка деталей-->
+                    <!--кнопка деталей-->
                     <a th:href="@{'/students/details/' + ${student.id}}" class="btn btn-info">DETAILS</a>
 
-                    <!--                кнопка обновления-->
+                    <!--кнопка обновления-->
                     <a th:href="@{'/students/update/' + ${student.id}}" class="btn btn-primary">UPDATE</a>
 
-                    <!--        кнопка удаления-->
+                    <!--кнопка удаления-->
                     <a th:href="@{'/students/delete/' + ${student.id}}" class="btn btn-danger">DELETE</a>
                 </td>
             </tr>

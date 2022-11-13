@@ -56,25 +56,26 @@ public class StudentController {
         return "redirect:/students";
     }
 
-//    @GetMapping("/students/update/{id}")
-//    public String showUpdateStudentForm(Model model, Student student) {
-//        model.addAttribute("student", student);
+    @GetMapping("/students/update/{id}")
+    public String showUpdateStudentForm(@PathVariable("id") Integer id, Model model) {
+        Student st = service.getStudentById(id);
+        model.addAttribute("student", st);
+
+        // ВАЖНО: при возврате представления указывается имя представления
+        return "students-update-form";
+    }
 //
-//        // ВАЖНО: при возврате представления указывается имя представления
-//        return "students-update-form";
-//    }
-//
-//    @PostMapping("/students/update/{id}")
-//    public String updateStudent(@PathVariable("id") Integer id, RedirectAttributes ra) {
-//        Student updated = service.updateStudent(id);
-//        ra.addFlashAttribute("message",
-//                "Student " + updated + " update successfully");
-//        return "redirect:/students";
-//    }
+    @PostMapping("/students/update")
+    public String updateStudent(Student student, RedirectAttributes ra) {
+        Student updated = service.updateStudent(student);
+        ra.addFlashAttribute("message",
+                "Student " + updated + " update successfully");
+        return "redirect:/students";
+    }
     @GetMapping("/students/details/{id}")
-   public String showDetails(@PathVariable("id") Integer id, RedirectAttributes ra) {
-//        service.showDetails(id);
-        ra.addFlashAttribute(service.showDetails(id));
-        return "redirect:/students-details";
+   public String showDetails(@PathVariable("id") Integer id, Model model) {
+        Student st = service.getStudentById(id);
+        model.addAttribute("student", st);
+        return "students-details";
     }
 }

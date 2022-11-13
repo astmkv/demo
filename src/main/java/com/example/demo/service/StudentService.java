@@ -24,25 +24,19 @@ public class StudentService {
         return repository.save(student);
     }
 
-    public Student showDetails(Integer id){
+    public Student getStudentById(Integer id){
         Optional<Student> student = repository.findById(id);
-        return student.get();
+
+        return student.orElse(null);
     }
 
 
 
 
     // обновить поля студента
-    public Student updateStudent (Integer id) {
-        // 1. найти обновляемого студента студента
-        Optional<Student> updated = repository.findById(id);
+    public Student updateStudent (Student student) {
+        return repository.save(student);
 
-        // 2. если такой студент есть, удалить
-        updated.ifPresent(student -> repository.delete(student));
-
-        // 3. создать нового студента
-        Student student = new Student();
-        return saveStudent(student);
     }
 
     // удалить студента по id
