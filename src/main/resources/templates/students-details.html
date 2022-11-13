@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Details about the student</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div>[[${student.id}]]</div>
+<table class="table table-bordered">
+    <!--        шапка таблицы-->
+    <thead class="table-dark">
+    <tr>
+
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="student: ${studentsList}">
+        <tr>
+            <td>[[${student.id}]]</td>
+            <td>[[${student.firstName}]]</td>
+            <td>[[${student.lastName}]]</td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+                <a th:href="@{/students}" class="btn btn-danger">Cancel</a>
+
+
+
+<!--<div class="container-fluid text-center">-->
+<!--    <h1>Details about the student</h1>-->
+<!--    &lt;!&ndash; форма добавления студента &ndash;&gt;-->
+<!--    <form method="post" th:action="@{/students/details}" th:object="${student}">-->
+<!--        &lt;!&ndash; поле имени &ndash;&gt;-->
+<!--        <label>First Name: </label>-->
+<!--        <input type="text" th:field="*{firstName}" required minlength="1" maxlength="50"/>-->
+<!--        &lt;!&ndash; поле фамилии &ndash;&gt;-->
+<!--        <label>Last Name: </label>-->
+<!--        <input type="text" th:field="*{lastName}" required minlength="1" maxlength="50"/>-->
+<!--        &lt;!&ndash; кнопка сохранить &ndash;&gt;-->
+<!--        <button type="submit" class="btn btn-success">Save</button>-->
+<!--        &lt;!&ndash; кнопка отмены &ndash;&gt;-->
+<!--        <a th:href="@{/students}" class="btn btn-danger">Cancel</a>-->
+<!--    </form>-->
+<!--</div>-->
+</body>
+</html>
