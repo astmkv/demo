@@ -9,25 +9,31 @@
 <div>[[${student.id}]]</div>
 <table class="table table-bordered">
     <!--        шапка таблицы-->
-    <thead class="table-dark">
+    <thead>
     <tr>
-
-        <td>ID</td>
-        <td>First Name</td>
-        <td>Last Name</td>
+        <td class="table-dark">ID</td>
+        <td>[[${student.id}]]</td>
+    </tr>
+    <tr>
+        <td class="table-dark">First Name</td>
+        <td>[[${student.firstName}]]</td>
+    </tr>
+    <tr>
+        <td class="table-dark">Last Name</td>
+        <td>[[${student.lastName}]]</td>
     </tr>
     </thead>
     <tbody>
 <!--    <th:block th:each="student: ${studentsList}">-->
-        <tr>
-            <td>[[${student.id}]]</td>
-            <td>[[${student.firstName}]]</td>
-            <td>[[${student.lastName}]]</td>
-        </tr>
+<!--        <tr>-->
+<!--            <td>[[${student.id}]]</td>-->
+<!--            <td>[[${student.firstName}]]</td>-->
+<!--            <td>[[${student.lastName}]]</td>-->
+<!--        </tr>-->
 <!--    </th:block>-->
     </tbody>
 </table>
-                <a th:href="@{/students}" class="btn btn-danger">Cancel</a>
+                <a th:href="@{/students}" class="btn btn-danger" >Back</a>
 
 
 

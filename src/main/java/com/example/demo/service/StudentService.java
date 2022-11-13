@@ -29,10 +29,7 @@ public class StudentService {
 
         return student.orElse(null);
     }
-
-
-
-
+    
     // обновить поля студента
     public Student updateStudent (Student student) {
         return repository.save(student);
