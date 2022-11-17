@@ -1,6 +1,7 @@
-package com.example.demo.service;
+package com.example.demo.controllers;
 
 import com.example.demo.db.Student;
+import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

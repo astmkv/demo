@@ -6,6 +6,10 @@ import javax.persistence.*;
 @Entity
 @Table(name="student_t")
 public class Student {
+
+    @ManyToOne
+    @JoinColumn(name = "group_id", nullable = true)
+    private Group group;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

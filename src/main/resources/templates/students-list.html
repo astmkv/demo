@@ -8,8 +8,8 @@
 <body>
 <div class="container-fluid text-center">
 
-    <!--    сообщение-->
-    <!--    если выражение в скобках {} верное, то елемент рендерится-->
+    <!-- сообщение -->
+    <!-- если выражение в скобках {} верное, то елемент рендерится -->
     <div th:if="${message != null}" class="alert alert-success">
         [[${message}]]
     </div>
@@ -34,7 +34,7 @@
                 <td>[[${student.lastName}]]</td>
 
                 <td>
-                    <!--кнопка деталей-->
+                                        <!--кнопка деталей-->
                     <a th:href="@{'/students/details/' + ${student.id}}" class="btn btn-info">DETAILS</a>
 
                     <!--кнопка обновления-->
@@ -54,3 +54,79 @@
 
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Start Title</title>-->
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>-->
+<!--    &lt;!&ndash;    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>&ndash;&gt;-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;    <span th:text = "${'Hello mr. ' +name}"></span>&ndash;&gt;-->
+<!--<div class="container-fluid text-center">-->
+<!--    <h1>Welcome ;)</h1>-->
+<!--    <a th:href="@{/start}" class="header">start page</a>-->
+<!--</div>-->
+
+
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-lg-10 mt-5 mb-5">-->
+<!--            <table id="example" class="table table-bordered" style="width: 100%">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th>№</th>-->
+<!--                    <th>first name</th>-->
+<!--                    <th>last name</th>-->
+<!--                    <th>Inn</th>-->
+<!--                    <th>e-mail</th>-->
+<!--                    <th>Action</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr th:each="item, iterStat : ${listOfStudents}"-->
+<!--                    th:style="${iterStat.odd} ? 'font-weight: bold;'">-->
+<!--                    <td th:text="${iterStat.index}+1" ></td>-->
+<!--                    <td th:text="${item.getFirstName()}"></td>-->
+<!--                    <td th:text="${item.getLastName()}"></td>-->
+<!--                    <td th:text="${item.getINN()}"></td>-->
+<!--                    &lt;!&ndash;                        <td th:text="${item.geteMail()}"></td>&ndash;&gt;-->
+<!--                    <td>[[${item.geteMail()}]]</td>-->
+<!--                    <td>-->
+<!--                        <a th:href="@{/students/addEditItem}">Add</a>-->
+<!--                        <a th:href="@{/students/addEditItem(id=${item.getId})}">Edit</a>-->
+<!--                        <a th:href="@{/students/delete(id=${item.getId})}">Delete</a>-->
+<!--                        &lt;!&ndash;                            <a th:href="@{students/details(id=${item.getId})}">Details</a>&ndash;&gt;-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--&lt;!&ndash;<span>ggggggggggggggggggggggggggggg</span>&ndash;&gt;-->
+<!--&lt;!&ndash;<ul >&ndash;&gt;-->
+<!--&lt;!&ndash;    <li><h6 >Dropdown header</h6></li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li><a  href="#">Action</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li><a  href="#">Another action</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;</ul>&ndash;&gt;-->
+<!--<div class="container">-->
+<!--    <div class="dropdown">-->
+<!--        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--            Dropdown-->
+<!--        </button>-->
+<!--        <ul class="dropdown-menu">-->
+<!--            <li><button class="dropdown-item" type="button">Action</button></li>-->
+<!--            <li><button class="dropdown-item" type="button">Another action</button></li>-->
+<!--            <li><button class="dropdown-item" type="button">Something else here</button></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
