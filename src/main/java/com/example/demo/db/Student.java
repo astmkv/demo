@@ -7,8 +7,17 @@ import javax.persistence.*;
 @Table(name="student_t")
 public class Student {
 
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    // ссылка на группу
     @ManyToOne
-    @JoinColumn(name = "group_id", nullable = true)
+    @JoinColumn(name="group_id", nullable = true)
     private Group group;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

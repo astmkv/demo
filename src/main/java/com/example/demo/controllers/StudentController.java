@@ -23,6 +23,7 @@ public class StudentController {
     public String showAllStudents(Model model) {
         List<Student> listStudents = service.listAll();
         model.addAttribute("studentsList", listStudents);
+
         return "students-list";
     }
 

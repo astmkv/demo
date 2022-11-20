@@ -24,13 +24,13 @@
     </tr>
     </thead>
     <tbody>
-<!--    <th:block th:each="student: ${studentsList}">-->
-<!--        <tr>-->
-<!--            <td>[[${student.id}]]</td>-->
-<!--            <td>[[${student.firstName}]]</td>-->
-<!--            <td>[[${student.lastName}]]</td>-->
-<!--        </tr>-->
-<!--    </th:block>-->
+    <th:block th:each="student: ${studentsList}">
+        <tr>
+            <td>[[${student.id}]]</td>
+            <td>[[${student.firstName}]]</td>
+            <td>[[${student.lastName}]]</td>
+        </tr>
+    </th:block>
     </tbody>
 </table>
                 <a th:href="@{/students}" class="btn btn-danger">Back</a>
