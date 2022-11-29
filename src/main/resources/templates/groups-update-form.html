@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update group</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav th:insert="/layout/layouts.html :: navs"></nav>
+<div class="container-fluid text-center">
+    <h1>Update roup</h1>
+    <form method="post" th:action="@{/templates/subjects/update}" th:object="${group}">
+        <input type="number" th:field="*{id}" hidden/>
+
+        <label>Group Name: </label>
+        <input type="text" th:field="*{groupName}" required minlength="1" maxlength="50"/>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <!-- кнопка отмены -->
+        <a th:href="@{/templates/subjects}" class="btn btn-danger">Cancel</a>
+    </form>
+</div>
+<div>
+    <footer th:insert="layout/layouts.html :: footer"></footer>
+</div>
+</body>
+</html>

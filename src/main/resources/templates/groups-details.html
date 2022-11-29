@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav th:insert="/layout/layouts.html :: navs"></nav>
+<!--<div>[[${group.id}]]</div>-->
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <td class="table-dark">ID</td>
+        <!--    <td>[[${group.id}]]</td>-->
+        <td class="table-dark">Group Name</td>
+        <!--    <td>[[${group.groupName}]]</td>-->
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="group: ${group}">
+        <tr>
+            <td>[[${group.id}]]</td>
+            <td>[[${group.groupName}]]</td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+
+<a th:href="@{/templates/subjects/groups}" class="btn btn-danger">Back</a>
+<div>
+    <footer th:insert="layout/layouts.html :: footer"></footer>
+</div>
+</body>
+</html>
