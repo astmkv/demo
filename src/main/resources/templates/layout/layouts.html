@@ -12,3 +12,29 @@
 <!--</div>-->
 <!--</body>-->
 <!--</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body><!-- фрагмент header -->
+<div th:fragment="navs">
+    <ul class="nav justify-content-center">
+        <li class="nav-item"><a class="nav-link" aria-current="page" th:href="@{/students}">Students</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/groups}">Groups</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/subjects}">Subjects</a></li>
+        <li class="nav-item"><a class="nav-link" th:href="@{/assessments}">Assessments</a></li>
+        <!--        <li class="nav-item">-->
+        <!--            <a class="nav-link" th:action="@{/logout}" method="post">Log out</a>--><!--        </li>-->
+        <form th:action="@{/logout}" method="post">
+            <button>Log out</button>
+        </form>
+    </ul>
+</div> <!-- фрагмент footer -->
+<div class="container-fluid text-center fixed-bottom text-bg-dark " th:fragment="footer">
+    <h3>добавить картинку и текст
+    &copy;</h3></div>
+</body>
+</html>

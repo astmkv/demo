@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style>
+  .btn {
+    height: 35px;
+    margin: 2px;
+    /*padding: 4px;*/
+  }
+</style>
 <head>
   <meta charset="UTF-8">
   <title>Add new Group</title>
   <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
+<nav th:insert="/layout/layouts.html :: navs"></nav>
 <div class="container-fluid text-center">
   <h1>Add new group</h1>
   <!-- форма добавления группы -->
@@ -17,13 +25,13 @@
     </label>
 
     <!-- кнопка сохранить -->
-    <button type="submit" class="btn btn-success">Save</button>
+    <button type="submit" class="btn btn-success btn-sm">Save</button>
     <!-- кнопка отмены -->
-    <a th:href="@{/groups}" class="btn btn-danger">Cancel</a>
+    <a th:href="@{/templates/groups}" class="btn btn-danger btn-sm">Cancel</a>
   </form>
 </div>
-<!--<div>-->
-<!--  <footer th:insert="layout/layouts.html :: footer "></footer>-->
-<!--</div>-->
+<div>
+  <footer th:insert="layout/layouts.html :: footer"></footer>
+</div>
 </body>
 </html>

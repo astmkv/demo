@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Subjects</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar-example">
+<nav th:insert="/layout/layouts.html :: navs"></nav>
+<br>
+<div class="container-fluid text-center">
+    <!-- сообщение -->
+    <div th:if="${message != null}" class="alert alert-success">
+        [[${message}]]
+    </div>
+
+    <table class="table table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Предмет</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="subject: ${subsList}">
+            <tr>
+                <td>[[${subject.id}]]</td>
+                <td>[[${subject.subjectName}]]</td>
+                <!--                <td>-->
+                <!--                    &lt;!&ndash; детали&ndash;&gt;-->
+                <!--                    <a th:href="@{'/groups/details/' + ${group.id}}" class="btn btn-info btn-xs">DETAILS</a>-->
+                <!--                    &lt;!&ndash; обновить&ndash;&gt;-->
+                <!--                    <a th:href="@{'/groups/update/' + ${group.id}}" class="btn btn-primary btn-xs">UPDATE</a>-->
+                <!--                    &lt;!&ndash; удалить&ndash;&gt;-->
+                <!--                    <a th:href="@{'/groups/delete/' + ${group.id}}">-->
+                <!--                        <button-->
+                <!--                                class="btn btn-danger btn-xs"-->
+                <!--                                data-toggle="modal"-->
+                <!--                                data-target="exampleModal"-->
+                <!--                        >DELETE</button></a>-->
+                <!--                </td>-->
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <!--    <a th:href="@{/templates/subjects/newGroup}" class="btn btn-primary btn-xs"> Add new Group </a>-->
+    <a th:href="@{/students}" class="btn btn-warning btn-xs"> Back to Students List </a>
+    <form th:action="@{/logout}" method="post" class="btn btn-danger btn-xs"> Sign out</form>
+</div>
+
+<div>
+    <footer th:insert="layout/layouts.html :: footer"></footer>
+</div>
+</body>
+</html>

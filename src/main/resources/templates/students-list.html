@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style>
+    .btn {
+        height: 35px;
+        margin: 2px;
+        /*padding: 4px;*/
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <title>All Students</title>
@@ -10,9 +17,9 @@
 
     <!-- сообщение -->
     <!-- если выражение в скобках {} верное, то елемент рендерится -->
-<!--    <div th:if="${message != null}" class="alert alert-success">-->
-<!--        [[${message}]]-->
-<!--    </div>-->
+    <div th:if="${message != null}" class="alert alert-success">
+        [[${message}]]
+    </div>
 
     <table class="table table-bordered">
         <!--шапка таблицы-->
@@ -28,6 +35,7 @@
         </tr>
         </thead>
         <tbody>
+        <nav th:insert="/layout/layouts.html :: navs"></nav>
         <!--цикл-->
         <th:block th:each="student: ${studentsList}">
             <tr>
@@ -38,13 +46,13 @@
                 <td th:if="${student.group == null}">NONE</td>
                 <td>
                                         <!--кнопка деталей-->
-                    <a th:href="@{'/students/details/' + ${student.id}}" class="btn btn-info">DETAILS</a>
+                    <a th:href="@{'/students/details/' + ${student.id}}" class="btn btn-info btn-xs">DETAILS</a>
 
                     <!--кнопка обновления-->
-                    <a th:href="@{'/students/update/' + ${student.id}}" class="btn btn-primary">UPDATE</a>
+                    <a th:href="@{'/students/update/' + ${student.id}}" class="btn btn-primary btn-xs">UPDATE</a>
 
                     <!--кнопка удаления-->
-                    <a th:href="@{'/students/delete/' + ${student.id}}" class="btn btn-danger">DELETE</a>
+                    <a th:href="@{'/students/delete/' + ${student.id}}" class="btn btn-danger btn-xs">DELETE</a>
                 </td>
             </tr>
         </th:block>
@@ -52,10 +60,15 @@
     </table>
 
     <!-- ссылка на добавление нового студента -->
-    <a th:href="@{/students/new}"> Add new Student </a>
+    <a th:href="@{/students/new}" class="btn btn-secondary btn-xs"> Add new Student </a>
     <br>
-    <a th:href="@{/groups/newGroup}"> Add new Group </a>
-</div>
+    <a th:href="@{/groups}" class="btn btn-secondary btn-xs"> Show Groups List </a>
+    <br>
+    <form th:action="@{/logout}" method="post"> <button class="btn btn-danger">Sign out</button> </form>
 
+</div>
+<div>
+    <footer th:insert="layout/layouts.html :: footer"></footer>
+</div>
 </body>
 </html>

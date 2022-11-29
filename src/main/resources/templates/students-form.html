@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style>
+    .btn {
+        height: 35px;
+        margin: 2px;
+        /*padding: 4px;*/
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Add new Student</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-
+<nav th:insert="/layout/layouts.html :: navs"></nav>
 <div class="container-fluid text-center">
     <h1>Add new student</h1>
     <!-- форма добавления студента -->
@@ -17,11 +24,25 @@
         <!-- поле фамилии -->
         <label>Last Name: </label>
         <input type="text" th:field="*{lastName}" required minlength="1" maxlength="50"/>
+        <!-- поле группы-->
+        <label>Group: </label>
+<!--        <th:block th:each="student: ${groupsList}">-->
+        <select th:field="*{group}">
+            <th:block th:each="group: ${groupsList}">
+                <option th:value="${group.id}">[[${group.groupName}]]</option>
+            </th:block>
+        </select>
+
+        <br>
+        <br>
         <!-- кнопка сохранить -->
-        <button type="submit" class="btn btn-success">Save</button>
+        <button type="submit" class="btn btn-success btn-xs">Save</button>
         <!-- кнопка отмены -->
-        <a th:href="@{/students}" class="btn btn-danger">Cancel</a>
+        <a th:href="@{/students}" class="btn btn-warning btn-xs">Cancel & Back</a>
     </form>
+</div>
+<div>
+    <footer th:insert="layout/layouts.html :: footer"></footer>
 </div>
 </body>
 </html>

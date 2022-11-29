@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
+<nav th:insert="/layout/layouts.html :: navs"></nav>
 <div>[[${student.id}]]</div>
 <table class="table table-bordered">
     <!--        шапка таблицы-->
@@ -24,6 +25,7 @@
     </tr>
     </thead>
     <tbody>
+    <!--/*@thymesVar id="studentsList" type=""*/-->
     <th:block th:each="student: ${studentsList}">
         <tr>
             <td>[[${student.id}]]</td>
@@ -33,8 +35,15 @@
     </th:block>
     </tbody>
 </table>
-                <a th:href="@{/students}" class="btn btn-danger">Back</a>
 
+<!--<a th:href="@{${student.id} + '/assessments/new'}" class="btn btn-success">Add new assessment</a>-->
+<a th:href="@{'/assessments/newAssessment/' + ${student.id}}" class="btn btn-success">Add new assessment</a>
+<!--<a th:href="@{student/assessments/new}" class="btn btn-success">Add new assessment</a>-->
+
+<a th:href="@{/students}" class="btn btn-danger">Back</a>
+<div>
+    <footer th:insert="layout/layouts.html :: footer"></footer>
+</div>
 
 
 <!--<div class="container-fluid text-center">-->

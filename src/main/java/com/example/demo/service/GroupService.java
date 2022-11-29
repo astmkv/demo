@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.db.Group;
-import com.example.demo.db.GroupRepository;
+import com.example.demo.db.entities.Group;
+import com.example.demo.db.repositories.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +24,19 @@ public class GroupService {
     }
 
     // Получение студента по id
-    public Optional<Group> getById(Integer id) {
-        return groupRepository.findById(id);
+    public Group getGroupById(Integer id) {
+        Optional<Group> group = groupRepository.findById(id);
+        return group.orElse(null);
+    }
+    public Group updateGroup (Group group) {
+        return groupRepository.save(group);
     }
 
+    public void deleteGroupById(Integer id){
+        // 1. найти удаляемого студента
+        Optional<Group> deletedGroup = groupRepository.findById(id);
+
+        // 2. если такой студент есть, то удалить
+        deletedGroup.ifPresent(group -> groupRepository.delete(group));
+    }
 }

@@ -1,11 +1,14 @@
 package com.example.demo.service;
 
-import com.example.demo.db.Student;
-import com.example.demo.db.StudentRepository;
+import com.example.demo.db.entities.Group;
+import com.example.demo.db.entities.Student;
+import com.example.demo.db.repositories.StudentRepository;
+import org.hibernate.Cache;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import javax.management.Query;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,6 +17,7 @@ public class StudentService {
 
     @Autowired
     private StudentRepository repository;
+//    private Cache HibernateUitl;
 
     public List<Student> listAll() {
         return (List<Student>) repository.findAll();
@@ -44,4 +48,14 @@ public class StudentService {
         // 2. если такой студент есть, то удалить
         deleted.ifPresent(student -> repository.delete(student));
     }
+
+//    public void udpateGroupIdToNull(Student student, Group group){
+//        if (student.getGroup().getId() == group.getId()) {
+//            student.setGroup(null);
+//        }
+//    }
+//
+//    public void clearGroup(Group group){
+//
+//    }
 }

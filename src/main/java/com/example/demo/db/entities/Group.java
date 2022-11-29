@@ -1,4 +1,4 @@
-package com.example.demo.db;
+package com.example.demo.db.entities;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -6,7 +6,7 @@ import java.util.Set;
 @Entity
 @Table(name="group_table")
 public class Group {
-    @OneToMany(mappedBy = "group")
+    @OneToMany(mappedBy = "group", cascade = CascadeType.PERSIST)
     private Set<Student> students;
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -19,6 +19,15 @@ public class Group {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
+
     public String getGroupName() {
         return groupName;
     }

@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
-import com.example.demo.db.Student;
+import com.example.demo.db.entities.Group;
+import com.example.demo.db.entities.Student;
+import com.example.demo.service.GroupService;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,9 @@ public class StudentController {
     @Autowired
     private StudentService service; // сервис студентов
 
+    @Autowired
+    private GroupService groupService; // сервис групп
+
     // обработчик на получение страницы со списком всех студентов
     @GetMapping("/students")
     public String showAllStudents(Model model) {
@@ -31,7 +36,8 @@ public class StudentController {
     @GetMapping("/students/new")
     public String showNewStudentForm(Model model) {
         model.addAttribute("student", new Student());
-
+        List<Group> groups = groupService.listAllGroups();
+        model.addAttribute("groupsList", groups);
         // ВАЖНО: при возврате представления указывается имя представления
         return "students-form";
     }
@@ -62,7 +68,8 @@ public class StudentController {
     public String showUpdateStudentForm(@PathVariable("id") Integer id, Model model) {
         Student st = service.getStudentById(id);
         model.addAttribute("student", st);
-
+        List<Group> groups = groupService.listAllGroups();
+        model.addAttribute("groupsList", groups);
         // ВАЖНО: при возврате представления указывается имя представления
         return "students-update-form";
     }

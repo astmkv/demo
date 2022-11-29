@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new Assessment</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<nav th:insert="/layout/layouts.html :: navs"></nav>
+<div class="container-fluid text-center">
+    <h1>Add new assessment</h1>
+    <form method="post" th:action="@{/assessments/newAssessment}" th:object="${assessment}">
+        <label>Date: </label>
+        <input type="date" th:field="*{date}" required minlength="1" maxlength="50"/>
+
+        <input type="text" th:field="*{student}" th:value="*{student.id}" hidden>
+
+        <label>Subject: </label>
+        <select th:field="*{subject}">
+            <th:block th:each="subject: ${subsList}">
+                <option th:value="${subject.id}">[[${subject.subjectName}]]</option>
+            </th:block>
+        </select>
+
+            <label> Assessment: </label>
+            <select th:field="*{value}">
+                <option th:value="${1}">1</option>
+                <option th:value="${2}">2</option>
+                <option th:value="${3}">3</option>
+                <option th:value="${4}">4</option>
+                <option th:value="${5}">5</option>
+            </select>
+
+        <br>
+        <!-- кнопка сохранить -->
+        <button class="btn btn-success btn-xs">Save</button>
+        <!-- кнопка отмены -->
+        <a th:href="@{'/students/details' + ${student.id}}" class="btn btn-warning btn-xs">Cancel & Back</a>
+    </form>
+</div>
+<div>
+    <footer th:insert="layout/layouts.html :: footer"></footer>
+</div>
+</body>
+</html>
