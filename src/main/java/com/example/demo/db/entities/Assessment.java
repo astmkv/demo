@@ -17,7 +17,7 @@ public class Assessment {
     private Integer value;
 
     @Column(nullable = false, length = 200)
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
     @ManyToOne

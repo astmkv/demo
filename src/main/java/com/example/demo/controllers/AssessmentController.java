@@ -51,7 +51,8 @@ public class AssessmentController {
 
         // 2. добавление сообщения о том, что оценка добавлен/не добавлен
         ra.addFlashAttribute("message",
-                "Assessment " + saved + " save successfully");
+                "Assessment " + saved.getValue() +
+                        " save successfully");
 
         // 3. выполнить перенаправление
         // ВАЖНО: при перенаправлении указывается путь

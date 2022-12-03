@@ -9,14 +9,14 @@
 <nav th:insert="/layout/layouts.html :: navs"></nav>
 <div class="container-fluid text-center">
     <h1>Update roup</h1>
-    <form method="post" th:action="@{/templates/subjects/update}" th:object="${group}">
+    <form method="post" th:action="@{/groups/update}" th:object="${group}">
         <input type="number" th:field="*{id}" hidden/>
 
         <label>Group Name: </label>
         <input type="text" th:field="*{groupName}" required minlength="1" maxlength="50"/>
         <button type="submit" class="btn btn-primary">Update</button>
         <!-- кнопка отмены -->
-        <a th:href="@{/templates/subjects}" class="btn btn-danger">Cancel</a>
+        <a th:href="@{/groups}" class="btn btn-danger">Cancel</a>
     </form>
 </div>
 <div>
